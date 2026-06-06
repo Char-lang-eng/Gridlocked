@@ -1,1 +1,22 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  font-family: Arial, sans-serif;
+  
+  justify-content: center;
+  align-items: center;
+}
+canvas{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
