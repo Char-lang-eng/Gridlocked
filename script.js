@@ -387,7 +387,7 @@ function update(){
     if(cars.length === 0 && timer <= 0){
         round++;
         timer = 30+round*10;
-        spawns = 0.075*(round+5)*timer-5;
+        spawns = 0.05*(round+7)*timer-5;
         if(round % 2 === 0){
             tileAvailable = true;
         }
