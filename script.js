@@ -230,7 +230,7 @@ class Car{
 let cars = [];
 let tiles = [];
 let t;
-let spawns = 9;
+let spawns = 6;
 let timer = 30;
 let round = 0;
 let turn = 0;
