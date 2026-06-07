@@ -230,7 +230,7 @@ class Car{
 let cars = [];
 let tiles = [];
 let t;
-let spawns = 6;
+let spawns = 8;
 let timer = 30;
 let round = 0;
 let turn = 0;
@@ -387,7 +387,7 @@ function update(){
     if(cars.length === 0 && timer <= 0){
         round++;
         timer = 30+round*10;
-        spawns = min((round+5)*0.05, (round+20)*0.02)*timer;
+        spawns = min((round+5)*0.05, (round+23)*0.02)*timer;
         if(round % 2 === 0){
             tileAvailable = true;
         }
