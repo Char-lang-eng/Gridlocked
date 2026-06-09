@@ -82,10 +82,10 @@ class Car{
                     }
                     this.patience -= 1;
                     if(this.patience == 6){
-                        audio[9].play();
+                        audio[9].cloneNode(true).play();
                     }
                     if(this.patience == 3){
-                        audio[10].play();
+                        audio[10].cloneNode(true).play();
                     }
                     break;
                 }
@@ -97,13 +97,13 @@ class Car{
         if(this.patience <= 0){
             cars.splice(cars.indexOf(this), 1);
             deductions += 1;
-            audio[1].play();
+            audio[1].cloneNode(true).play();
         }
         for(let j = 0; j < tiles.length; j++){
             if(this.x === tiles[j].x && this.y === tiles[j].y){
                 if(tiles[j].type === 'mud'){
                     if(this.stuck == false){
-                        audio[4].play();
+                        audio[4].cloneNode(true).play();
                     }
                     this.stuck = true;
                     
@@ -129,26 +129,26 @@ class Car{
                 else if(tiles[j].type === 'lava'){
                     cars.splice(cars.indexOf(this), 1);
                     deductions += 1;
-                    audio[1].play();
-                    audio[2].play();
+                    audio[1].cloneNode(true).play();
+                    audio[2].cloneNode(true).play();
                 }
                 else if(tiles[j].type === 'pusher'){
                     j = tiles.length;
                     if(this.direction === 'right'){
                         this.push('up');
-                        audio[3].play();
+                        audio[3].cloneNode(true).play();
                     }
                     else if(this.direction === 'left'){
                         this.push('down');
-                        audio[3].play();
+                        audio[3].cloneNode(true).play();
                     }
                     else if(this.direction === 'up'){
                         this.push('left');
-                        audio[3].play();
+                        audio[3].cloneNode(true).play();
                     }
                     else if(this.direction === 'down'){
                         this.push('right');
-                        audio[3].play();
+                        audio[3].cloneNode(true).play();
                     }
                 }
             }
@@ -244,7 +244,7 @@ class Car{
                     else{
                         cars.splice(cars.indexOf(this), 1);
                         deductions += 1;
-                        audio[2].play();
+                        audio[2].cloneNode(true).play();
                     }
                     audio[1].play();
                     
@@ -314,7 +314,7 @@ function draw(){
         if(deductions >= 10){
             wait--;
             if(wait == 0){
-                audio[0].play();
+                audio[0].cloneNode(true).play();
             }
         }
         if(millis() - t > 1000){
@@ -426,10 +426,10 @@ function update(){
         if(round % 2 === 0){
             tileAvailable = true;
         }
-        audio[7].play();
+        audio[7].cloneNode(true).play();
     }
     else if(timer == 0){
-        audio[6].play();
+        audio[6].cloneNode(true).play();
     }
     if(timer <= 0){
         spawns = 0;
@@ -460,6 +460,6 @@ function keyPressed(){
         } 
         tiles.push(new Tile('pusher'));
         tileAvailable = false;
-        audio[8].play();
+        audio[8].cloneNode(true).play();
     }
 }
