@@ -250,9 +250,9 @@ let tileAvailable = false;
 let player;
 let wait = 50;
 let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
-             new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), ];
+             new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/gameover"), new Audio("sound/gameover"), ];
 function setup(){
-    audio[3].volume(1);
+    audio[3].volume = 1;
     createCanvas(400,500);
     t = millis();
     player = new Car(5, 5, 'none');
@@ -442,5 +442,6 @@ function keyPressed(){
         } 
         tiles.push(new Tile('pusher'));
         tileAvailable = false;
+        audio[8].play();
     }
 }
