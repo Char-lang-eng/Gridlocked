@@ -129,6 +129,7 @@ class Car{
                 else if(tiles[j].type === 'lava'){
                     cars.splice(cars.indexOf(this), 1);
                     deductions += 1;
+                    audio[1].play();
                     audio[2].play();
                 }
                 else if(tiles[j].type === 'pusher'){
@@ -244,7 +245,8 @@ class Car{
                         cars.splice(cars.indexOf(this), 1);
                         deductions += 1;
                     }
-                    audio[2].play();
+                    audio[1].play();
+                    .play();
                 }
             }
         }
