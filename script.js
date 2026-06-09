@@ -77,6 +77,12 @@ class Car{
                         this.y -= 1;
                     }
                     this.patience -= 1;
+                    if(this.patience == 6){
+                        audio[9].play();
+                    }
+                    if(this.patience == 3){
+                        audio[10].play();
+                    }
                     break;
                 }
             }
@@ -94,24 +100,30 @@ class Car{
             if(this.x === tiles[j].x && this.y === tiles[j].y){
                 if(tiles[j].type === 'mud'){
                     this.stuck = true;
+                    audio[4].play();
                 }
                 else if(tiles[j].type === 'magic'){
                     if(this.direction === 'right'){
                         this.direction = 'down';
+                        audio[5].play();
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
+                        audio[5].play();
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
+                        audio[5].play();
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
+                        audio[5].play();
                     }
                 }
                 else if(tiles[j].type === 'lava'){
                     cars.splice(cars.indexOf(this), 1);
                     deductions += 1;
+                    audio[2].play();
                 }
                 else if(tiles[j].type === 'pusher'){
                     j = tiles.length;
@@ -250,7 +262,7 @@ let tileAvailable = false;
 let player;
 let wait = 50;
 let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
-             new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/gameover"), new Audio("sound/gameover"), ];
+             new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb"), ];
 function setup(){
     audio[3].volume = 1;
     createCanvas(400,500);
