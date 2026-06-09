@@ -217,6 +217,9 @@ class Car{
         for(let j = 0; j < tiles.length; j++){
             if(this.x === tiles[j].x && this.y === tiles[j].y){
                 if(tiles[j].type === 'mud'){
+                    if(this.stuck === false){
+                        audio[4].play();
+                    }
                     this.stuck = true;
                 }
                 else if(tiles[j].type === 'magic'){
