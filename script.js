@@ -66,15 +66,19 @@ class Car{
                 if((cars[i] !== this && cars[i].x === this.x && cars[i].y === this.y) || (player.x === this.x && player.y === this.y)){
                     if(this.direction === 'right'){
                         this.x -= 1;
+                        audio[5].play();
                     }
                     else if(this.direction === 'left'){
                         this.x += 1;
+                        audio[5].play();
                     }
                     else if(this.direction === 'up'){
                         this.y += 1;
+                        audio[5].play();
                     }
                     else if(this.direction === 'down'){
                         this.y -= 1;
+                        audio[5].play();
                     }
                     this.patience -= 1;
                     if(this.patience == 6){
@@ -107,15 +111,19 @@ class Car{
                 else if(tiles[j].type === 'magic'){
                     if(this.direction === 'right'){
                         this.direction = 'down';
+                        audio[5].play();
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
+                        audio[5].play();
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
+                        audio[5].play();
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
+                        audio[5].play();
                     }
                 }
                 else if(tiles[j].type === 'lava'){
@@ -257,7 +265,7 @@ let wait = 50;
 let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
              new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb"), ];
 function setup(){
-    audio[3].volume = 1;
+    audio[5].volume = 0.25;
     createCanvas(400,500);
     t = millis();
     player = new Car(5, 5, 'none');
@@ -266,6 +274,7 @@ function setup(){
     tiles.push(new Tile('mud'));
     tiles.push(new Tile('magic'));
     tiles.push(new Tile('magic'));
+
 }
 function draw(){
 
