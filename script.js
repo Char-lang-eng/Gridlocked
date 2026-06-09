@@ -410,7 +410,7 @@ function update(){
         }
         audio[7].play();
     }
-    elseif(timer == 0){
+    else if(timer == 0){
         audio[6].play();
     }
     if(timer <= 0){
