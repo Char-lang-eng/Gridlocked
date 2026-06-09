@@ -66,19 +66,19 @@ class Car{
                 if((cars[i] !== this && cars[i].x === this.x && cars[i].y === this.y) || (player.x === this.x && player.y === this.y)){
                     if(this.direction === 'right'){
                         this.x -= 1;
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     else if(this.direction === 'left'){
                         this.x += 1;
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     else if(this.direction === 'up'){
                         this.y += 1;
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     else if(this.direction === 'down'){
                         this.y -= 1;
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     this.patience -= 1;
                     if(this.patience == 6){
@@ -111,19 +111,19 @@ class Car{
                 else if(tiles[j].type === 'magic'){
                     if(this.direction === 'right'){
                         this.direction = 'down';
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
-                        audio[5].play();
+                        audio[5].cloneNode(true).play();
                     }
                 }
                 else if(tiles[j].type === 'lava'){
@@ -244,9 +244,10 @@ class Car{
                     else{
                         cars.splice(cars.indexOf(this), 1);
                         deductions += 1;
+                        audio[2].play();
                     }
                     audio[1].play();
-                    audio[2].play();
+                    
                 }
             }
         }
