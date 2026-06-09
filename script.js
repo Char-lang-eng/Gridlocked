@@ -269,7 +269,7 @@ let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audi
              new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb"), ];
 function setup(){
     audio[5].volume = 0.25;
-    audio[1].volume = 0.5
+    audio[1].volume = 0.25
     createCanvas(400,500);
     t = millis();
     player = new Car(5, 5, 'none');
