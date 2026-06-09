@@ -268,7 +268,7 @@ let wait = 50;
 let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
              new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb"), ];
 function setup(){
-    audio[5].volume = 0.25;
+    audio[5].volume = 0.1;
     audio[1].volume = 0.25;
     createCanvas(400,500);
     t = millis();
