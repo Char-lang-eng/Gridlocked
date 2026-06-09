@@ -238,6 +238,8 @@ let deductions = 0;
 let tileAvailable = false;
 let player;
 let wait = 50;
+let audio = [new Audio("sound/gameover")];
+
 function setup(){
     createCanvas(400,500);
     t = millis();
@@ -281,6 +283,9 @@ function draw(){
         }
         if(deductions >= 10){
             wait--;
+            if(wait == 0){
+                audio[0].play();
+            }
         }
         if(millis() - t > 1000){
             update();
