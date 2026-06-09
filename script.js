@@ -88,6 +88,7 @@ class Car{
         if(this.patience <= 0){
             cars.splice(cars.indexOf(this), 1);
             deductions += 1;
+            audio[1].play();
         }
         for(let j = 0; j < tiles.length; j++){
             if(this.x === tiles[j].x && this.y === tiles[j].y){
@@ -238,7 +239,8 @@ let deductions = 0;
 let tileAvailable = false;
 let player;
 let wait = 50;
-let audio = [new Audio("sound/gameover")];
+let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), 
+             new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), ];
 
 function setup(){
     createCanvas(400,500);
