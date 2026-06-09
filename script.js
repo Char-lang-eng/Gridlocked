@@ -89,7 +89,6 @@ class Car{
         }
         else{
             this.patience -= 1;
-            this.stuck = false;
         }
         if(this.patience <= 0){
             cars.splice(cars.indexOf(this), 1);
@@ -99,25 +98,24 @@ class Car{
         for(let j = 0; j < tiles.length; j++){
             if(this.x === tiles[j].x && this.y === tiles[j].y){
                 if(tiles[j].type === 'mud'){
+                    if(this.stuck == false){
+                        audio[4].play();
+                    }
                     this.stuck = true;
-                    audio[4].play();
+                    
                 }
                 else if(tiles[j].type === 'magic'){
                     if(this.direction === 'right'){
                         this.direction = 'down';
-                        audio[5].play();
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
-                        audio[5].play();
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
-                        audio[5].play();
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
-                        audio[5].play();
                     }
                 }
                 else if(tiles[j].type === 'lava'){
@@ -219,19 +217,15 @@ class Car{
                 else if(tiles[j].type === 'magic'){
                     if(this.direction === 'right'){
                         this.direction = 'down';
-                        audio[5].play();
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
-                        audio[5].play();
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
-                        audio[5].play();
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
-                        audio[5].play();
                     }
                 }
                 else if(tiles[j].type === 'lava'){
