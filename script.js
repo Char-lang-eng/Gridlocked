@@ -117,15 +117,19 @@ class Car{
                     j = tiles.length;
                     if(this.direction === 'right'){
                         this.push('up');
+                        audio[3].play();
                     }
                     else if(this.direction === 'left'){
                         this.push('down');
+                        audio[3].play();
                     }
                     else if(this.direction === 'up'){
                         this.push('left');
+                        audio[3].play();
                     }
                     else if(this.direction === 'down'){
                         this.push('right');
+                        audio[3].play();
                     }
                 }
             }
@@ -222,6 +226,7 @@ class Car{
                         cars.splice(cars.indexOf(this), 1);
                         deductions += 1;
                     }
+                    audio[2].play();
                 }
             }
         }
@@ -239,7 +244,7 @@ let deductions = 0;
 let tileAvailable = false;
 let player;
 let wait = 50;
-let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), 
+let audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/gameover"), new Audio("sound/gameover"), 
              new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), new Audio("sound/gameover"), ];
 
 function setup(){
