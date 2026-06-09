@@ -246,7 +246,7 @@ class Car{
                         deductions += 1;
                     }
                     audio[1].play();
-                    .play();
+                    audio[2].play();
                 }
             }
         }
