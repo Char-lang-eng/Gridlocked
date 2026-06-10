@@ -281,11 +281,6 @@ function setup(){
     createCanvas(400,500);
     t = millis();
     player = new Car(0, 0, 'none');
-    tiles.push(new Tile('lava'));
-    tiles.push(new Tile('mud'));
-    tiles.push(new Tile('mud'));
-    tiles.push(new Tile('magic'));
-    tiles.push(new Tile('magic'));
 }
 function draw(){
 
@@ -373,75 +368,77 @@ function draw(){
 
 }
 function update(){
-    for(let i = 0; i < cars.length; i++){
-        if(turn === 0 && (cars[i].direction === 'right' || cars[i].direction === 'left')){
-            cars[i].move();
-        }
-        if(turn === 1 && (cars[i].direction === 'up' || cars[i].direction === 'down')){
-            cars[i].move();
-        }
-        
-        
-    }
-    for(let i = 0; i < spawns && timer >= 1; i++){
-        if(random(0, 1) < 1/timer){
-            if(turn === 0){
-                direction = random(['right', 'left']);
-            }
-            else if(turn === 1){
-                direction = random(['up', 'down']);
-            }
-            if(direction === 'right'){
-                cars.push(new Car(0, floor(random(1, 9)), 'right'));
-            } else if(direction === 'left'){
-                cars.push(new Car(9, floor(random(1, 9)), 'left'));
-            } else if(direction === 'up'){
-                cars.push(new Car(floor(random(1, 9)), 9, 'up'));
-            } else if(direction === 'down'){
-                cars.push(new Car(floor(random(1, 9)), 0, 'down'));
-            }
-            spawns--;
-        }
-    }
-    if(turn === 0 ){
-        turn = 1;
-    }
-    else if(turn === 1){
-        turn = 0;
-    }
-    for(let i = 0; i < cars.length; i++){
-        if(cars[i].x === player.x && cars[i].y === player.y){
-            spawns++;
-            cars.splice(i, 1);
-            i--;
-        }
-        else{
-            for(let j = i+1; j < cars.length; j++){
-                if(cars[i].x === cars[j].x && cars[i].y === cars[j].y){
-                    spawns++;
-                    cars.splice(j, 1);
-                    j--;
-                }
-            }
-        }
-    }
-    timer--;
-    if(cars.length === 0 && timer <= 0){
-        round++;
-        timer = 30+round*10;
-        spawns = (round+10)*0.03*timer;
-        if(round % 2 === 0){
-            tileAvailable = true;
-        }
-        audio[7].play();
-    }
-    else if(timer == 0){
-        audio[6].play();
-    }
-    if(timer <= 0){
-        spawns = 0;
-    }
-        
+	if(state === 1){
+	    for(let i = 0; i < cars.length; i++){
+	        if(turn === 0 && (cars[i].direction === 'right' || cars[i].direction === 'left')){
+	            cars[i].move();
+	        }
+	        if(turn === 1 && (cars[i].direction === 'up' || cars[i].direction === 'down')){
+	            cars[i].move();
+	        }
+	        
+	        
+	    }
+	    for(let i = 0; i < spawns && timer >= 1; i++){
+	        if(random(0, 1) < 1/timer){
+	            if(turn === 0){
+	                direction = random(['right', 'left']);
+	            }
+	            else if(turn === 1){
+	                direction = random(['up', 'down']);
+	            }
+	            if(direction === 'right'){
+	                cars.push(new Car(0, floor(random(1, 9)), 'right'));
+	            } else if(direction === 'left'){
+	                cars.push(new Car(9, floor(random(1, 9)), 'left'));
+	            } else if(direction === 'up'){
+	                cars.push(new Car(floor(random(1, 9)), 9, 'up'));
+	            } else if(direction === 'down'){
+	                cars.push(new Car(floor(random(1, 9)), 0, 'down'));
+	            }
+	            spawns--;
+	        }
+	    }
+	    if(turn === 0 ){
+	        turn = 1;
+	    }
+	    else if(turn === 1){
+	        turn = 0;
+	    }
+	    for(let i = 0; i < cars.length; i++){
+	        if(cars[i].x === player.x && cars[i].y === player.y){
+	            spawns++;
+	            cars.splice(i, 1);
+	            i--;
+	        }
+	        else{
+	            for(let j = i+1; j < cars.length; j++){
+	                if(cars[i].x === cars[j].x && cars[i].y === cars[j].y){
+	                    spawns++;
+	                    cars.splice(j, 1);
+	                    j--;
+	                }
+	            }
+	        }
+	    }
+	    timer--;
+	    if(cars.length === 0 && timer <= 0){
+	        round++;
+	        timer = 30+round*10;
+	        spawns = (round+10)*0.03*timer;
+	        if(round % 2 === 0){
+	            tileAvailable = true;
+	        }
+	        audio[7].play();
+	    }
+	    else if(timer == 0){
+	        audio[6].play();
+	    }
+	    if(timer <= 0){
+	        spawns = 0;
+	    }
+	        
+	}
 }
 function keyPressed(){
     if(deductions >= 10){
@@ -449,6 +446,11 @@ function keyPressed(){
     }
 	if(keyCode === 80){
 		if(state === 0){
+			tiles.push(new Tile('lava'));
+		    tiles.push(new Tile('mud'));
+		    tiles.push(new Tile('mud'));
+		    tiles.push(new Tile('magic'));
+		    tiles.push(new Tile('magic'));
 		}
 		if(state === 1){
 			state = 2;
@@ -457,7 +459,7 @@ function keyPressed(){
 			state = 1;
 		}
 	}
-	if(state === 1){
+	if(state != 2){
 	    if(keyCode === UP_ARROW){
 	        player.push('up');
 	    }
