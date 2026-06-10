@@ -363,6 +363,7 @@ function draw(){
 			rect(0, 0, 400, 400);
 			textAlign(CENTER, CENTER);
 			textSize(40);
+			fill(255);
 			text("Paused\n press 'p' to resume", 200, 200); 
 		}
         else if(tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
