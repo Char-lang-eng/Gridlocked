@@ -89,6 +89,12 @@ class Car{
         }
         else{
             this.patience -= 1;
+            if(this.patience == 6){
+                audio[9].play();
+            }
+            if(this.patience == 3){
+                audio[10].play();
+            }
         }
         if(this.patience <= 0){
             cars.splice(cars.indexOf(this), 1);
