@@ -356,6 +356,7 @@ function draw(){
         textAlign(CENTER, TOP);
 		if(state != 1){
 			text("Press 'p' to play", 270, 453);
+		}
         else if(tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
             text("Space to place pusher tile", 270, 453);
         }
