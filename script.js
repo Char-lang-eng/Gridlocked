@@ -24,21 +24,16 @@ class Tile{
     }
     draw(){
         if(this.type === 'mud'){
-            fill(100, 60, 20);
-            rect(this.x*40, this.y*40, 40, 40);
+            image(images[3], this.x*40, this.y*40, 40, 40);
         }
         if(this.type === 'lava'){
-            // fill(255, 50, 0);
-            // rect(this.x*40, this.y*40, 40, 40);
 			image(images[0], this.x*40, this.y*40, 40, 40);
         }
         if(this.type === 'magic'){
-            fill(100, 20, 100);
-            rect(this.x*40, this.y*40, 40, 40);
+            image(images[2], this.x*40, this.y*40, 40, 40);
         }
         if(this.type === 'pusher'){
-            fill(200, 200, 255);
-            rect(this.x*40, this.y*40, 40, 40);
+            image(images[1], this.x*40, this.y*40, 40, 40);
         }
     }
 }
@@ -286,7 +281,7 @@ let images = []
 function setup(){
     audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
     new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb")];
-	images = [loadImage("images/lava.png")];
+	images = [loadImage("images/lava.png"), loadImage("images/pusher.png"), loadImage("images/magic.png"), loadImage("images/mud.png")];
     audio[5].volume = 0.5;
     audio[4].volume = 0.5;
     audio[1].volume = 0.25;
