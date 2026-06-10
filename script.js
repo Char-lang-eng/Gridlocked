@@ -284,9 +284,11 @@ function setup(){
 }
 function draw(){
 
-    if(wait > 0 && state != 2){
-        
-        background(220);
+    if(wait > 0){
+		background(220);
+        if(state == 0){
+			background(100, 50, 150);
+		}
         for(let i = 0; i < tiles.length; i++){
             tiles[i].draw();
         }
@@ -325,15 +327,17 @@ function draw(){
         }
         
         // Display stats at the bottom
-        fill(200);
-        rect(0, 400, 400, 100);
-        fill(0);
-        textSize(20);
-        textAlign(LEFT, TOP);
-        text("Round " + (round+1), 20, 415);
-        textSize(16);
-        text("Cars left: " + (Math.ceil(spawns)), 20, 445);
-        text("Time left: " + Math.max(timer, 0), 20, 465);
+		if(state != 0){
+	        fill(200);
+	        rect(0, 400, 400, 100);
+	        fill(0);
+	        textSize(20);
+	        textAlign(LEFT, TOP);
+	        text("Round " + (round+1), 20, 415);
+	        textSize(16);
+	        text("Cars left: " + (Math.ceil(spawns)), 20, 445);
+	        text("Time left: " + Math.max(timer, 0), 20, 465);
+		}
         for(let i = 0; i < 10; i++){
             fill(0, 255, 0)
             if(i < deductions){
@@ -350,7 +354,9 @@ function draw(){
         fill(0);
         textSize(20);
         textAlign(CENTER, TOP);
-        if(tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
+		if(state != 1){
+			text("Press 'p' to play", 270, 453);
+        else if(tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
             text("Space to place pusher tile", 270, 453);
         }
 
