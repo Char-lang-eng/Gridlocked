@@ -50,6 +50,15 @@ class Car{
         this.direction = direction;
         this.stuck = false;
         this.patience = 10;
+		if (this.direction === 'right') {
+                this.sx -= 1;
+		} else if (this.direction === 'left') {
+			this.sx += 1;
+		} else if (this.direction === 'up') {
+			this.sy += 1;
+		} else if (this.direction === 'down') {
+			this.sy -= 1;
+		}
     }
     move() {
         if(!this.stuck){
