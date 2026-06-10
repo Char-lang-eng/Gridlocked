@@ -471,7 +471,6 @@ function keyPressed(){
 	        player.push('right');
 	    }
 	    else if(keyCode === 32 && tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
-			if(
 	        for(let i = 0; i < tiles.length; i++){
 	            if(tiles[i].x === player.x && tiles[i].y === player.y){
 	                return;
