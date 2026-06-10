@@ -132,19 +132,15 @@ class Car{
                     j = tiles.length;
                     if(this.direction === 'right'){
                         this.push('up');
-                        audio[3].play();
                     }
                     else if(this.direction === 'left'){
                         this.push('down');
-                        audio[3].play();
                     }
                     else if(this.direction === 'up'){
                         this.push('left');
-                        audio[3].play();
                     }
                     else if(this.direction === 'down'){
                         this.push('right');
-                        audio[3].play();
                     }
                 }
             }
@@ -217,7 +213,7 @@ class Car{
         for(let j = 0; j < tiles.length; j++){
             if(this.x === tiles[j].x && this.y === tiles[j].y){
                 if(tiles[j].type === 'mud'){
-                    if(this.stuck === false){
+                    if(this.stuck === false && this.direction != 'none'){
                         audio[4].play();
                     }
                     this.stuck = true;
