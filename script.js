@@ -364,7 +364,9 @@ function draw(){
 			textAlign(CENTER, CENTER);
 			textSize(40);
 			fill(255);
-			text("Paused \n press 'p' to resume", 200, 200); 
+			text("Game Paused", 200, 180); 
+			textSize(20);
+			text("press 'p' to resume", 200, 220); 
 		}
         else if(tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
             text("Space to place pusher tile", 270, 453);
