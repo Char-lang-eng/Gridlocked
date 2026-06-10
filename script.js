@@ -355,13 +355,19 @@ function draw(){
         fill(0);
         textSize(20);
         textAlign(CENTER, TOP);
-		if(state != 1){
-			text("Press 'p' to play", 270, 453);
+		if(state === 0){
+			text("Press 'p' to start", 270, 453);
+		}
+		if(state === 2){
+			fill(0);
+			rect(0, 0, 400, 400);
+			textAlign(CENTER, CENTER);
+			textSize(40);
+			text("Paused\n press 'p' to resume", 200, 200); 
 		}
         else if(tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
             text("Space to place pusher tile", 270, 453);
         }
-
     }
     if(wait <= 0){
         background(255, 0, 0, 10);
