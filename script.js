@@ -327,9 +327,10 @@ function draw(){
         }
         
         // Display stats at the bottom
+
+		fill(200);
+		rect(0, 400, 400, 100);
 		if(state != 0){
-	        fill(200);
-	        rect(0, 400, 400, 100);
 	        fill(0);
 	        textSize(20);
 	        textAlign(LEFT, TOP);
@@ -452,6 +453,7 @@ function keyPressed(){
         return;
     }
 	if(keyCode === 80){
+		audio[3].play();
 		if(state === 0){
 			tiles.push(new Tile('lava'));
 		    tiles.push(new Tile('mud'));
