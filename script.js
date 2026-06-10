@@ -262,6 +262,7 @@ class Car{
 let cars = [];
 let tiles = [];
 let t;
+let state = 0;
 let spawns = 9;
 let timer = 30;
 let round = 0;
@@ -279,17 +280,16 @@ function setup(){
     audio[1].volume = 0.25;
     createCanvas(400,500);
     t = millis();
-    player = new Car(5, 5, 'none');
+    player = new Car(0, 0, 'none');
     tiles.push(new Tile('lava'));
     tiles.push(new Tile('mud'));
     tiles.push(new Tile('mud'));
     tiles.push(new Tile('magic'));
     tiles.push(new Tile('magic'));
-
 }
 function draw(){
 
-    if(wait > 0){
+    if(wait > 0 && state != 2){
         
         background(220);
         for(let i = 0; i < tiles.length; i++){
@@ -447,26 +447,39 @@ function keyPressed(){
     if(deductions >= 10){
         return;
     }
-    if(keyCode === UP_ARROW){
-        player.push('up');
-    }
-    else if(keyCode === DOWN_ARROW){
-        player.push('down');
-    }
-    else if(keyCode === LEFT_ARROW){
-        player.push('left');
-    }
-    else if(keyCode === RIGHT_ARROW){
-        player.push('right');
-    }
-    else if(keyCode === 32 && tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
-        for(let i = 0; i < tiles.length; i++){
-            if(tiles[i].x === player.x && tiles[i].y === player.y){
-                return;
-            }
-        } 
-        tiles.push(new Tile('pusher'));
-        tileAvailable = false;
-        audio[8].play();
-    }
+	if(keyCode === 80){
+		if(state === 0){
+		}
+		if(state === 1){
+			state = 2;
+		}
+		else{
+			state = 1;
+		}
+	}
+	if(state === 1){
+	    if(keyCode === UP_ARROW){
+	        player.push('up');
+	    }
+	    else if(keyCode === DOWN_ARROW){
+	        player.push('down');
+	    }
+	    else if(keyCode === LEFT_ARROW){
+	        player.push('left');
+	    }
+	    else if(keyCode === RIGHT_ARROW){
+	        player.push('right');
+	    }
+	    else if(keyCode === 32 && tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
+			if(
+	        for(let i = 0; i < tiles.length; i++){
+	            if(tiles[i].x === player.x && tiles[i].y === player.y){
+	                return;
+	            }
+	        } 
+	        tiles.push(new Tile('pusher'));
+	        tileAvailable = false;
+	        audio[8].play();
+	    }
+	}
 }
