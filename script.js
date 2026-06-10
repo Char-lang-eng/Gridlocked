@@ -28,8 +28,9 @@ class Tile{
             rect(this.x*40, this.y*40, 40, 40);
         }
         if(this.type === 'lava'){
-            fill(255, 50, 0);
-            rect(this.x*40, this.y*40, 40, 40);
+            // fill(255, 50, 0);
+            // rect(this.x*40, this.y*40, 40, 40);
+			image(images[0], this.x*40, this.y*40, 40, 40);
         }
         if(this.type === 'magic'){
             fill(100, 20, 100);
@@ -281,9 +282,11 @@ let tileAvailable = false;
 let player;
 let wait = 50;
 let audio = [];
+let images = []
 function setup(){
     audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
     new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb")];
+	images = [loadImage("images/lava.png")];
     audio[5].volume = 0.5;
     audio[4].volume = 0.5;
     audio[1].volume = 0.25;
