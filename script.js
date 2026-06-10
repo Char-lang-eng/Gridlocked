@@ -287,7 +287,7 @@ function draw(){
     if(wait > 0){
 		background(220);
         if(state == 0){
-			background(100, 50, 150);
+			background(200, 150, 250);
 		}
         for(let i = 0; i < tiles.length; i++){
             tiles[i].draw();
