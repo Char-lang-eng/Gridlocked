@@ -359,7 +359,7 @@ function draw(){
                 fill(255, 0, 0);
                 textSize(24);
                 textAlign(CENTER, CENTER);
-                text("X", 380-25*i, 424);
+                text("X", 380-25*i, 426);
             }
         }
         fill(0);
