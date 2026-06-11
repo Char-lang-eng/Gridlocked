@@ -316,7 +316,7 @@ function draw(){
 			else if(cars[i].direction === "down"){
 				image(images[8], cars[i].sx*40,cars[i].sy*40,40,40);
 			}
-            fill(255-25.5*cars[i].patience,0,25.5*cars[i].patience);
+            fill(255-25.5*cars[i].patience,25.5*cars[i].patience, 0);
             ellipse(cars[i].sx*40+30,cars[i].sy*40,10,10);
             fill(255);
             textSize(24);
