@@ -281,7 +281,8 @@ let images = []
 function setup(){
     audio = [loadSound("sound/gameover"), loadSound("sound/deduction"), loadSound("sound/burndeduction"), loadSound("sound/carpush"), loadSound("sound/carmud"), loadSound("sound/carmagic"), 
     loadSound("sound/endofround"), loadSound("sound/newround"), loadSound("sound/placetile"), loadSound("sound/beepa"), loadSound("sound/beepb")];
-	images = [loadImage("images/lava.png"), loadImage("images/pusher.png"), loadImage("images/magic.png"), loadImage("images/mud.png")];
+	images = [loadImage("images/lava.png"), loadImage("images/pusher.png"), loadImage("images/magic.png"), loadImage("images/mud.png"), loadImage("images/player.png"), loadImage("images/carleft.png"),
+			 loadImage("images/carright.png"), loadImage("images/carup.png"), loadImage("images/cardown.png")];
     audio[5].volume = 0.5;
     audio[4].volume = 0.5;
     audio[1].volume = 0.25;
@@ -299,13 +300,24 @@ function draw(){
         for(let i = 0; i < tiles.length; i++){
             tiles[i].draw();
         }
-        fill(0,255,0);
-        rect(player.sx*40+5,player.sy*40+5,30,30);
+		image(images[4], player.sx*40,player.sy*40,40,40);
         player.sx = player.x*0.2+player.sx*0.8;
         player.sy = player.y*0.2+player.sy*0.8;
         for(let i = 0; i < cars.length; i++){
+			if(cars[i].direction === "left"){
+				image(images[5], player.sx*40,player.sy*40,40,40);
+			}
+			else if(cars[i].direction === "right"){
+				image(images[6], player.sx*40,player.sy*40,40,40);
+			}
+			else if(cars[i].direction === "up"){
+				image(images[7], player.sx*40,player.sy*40,40,40);
+			}
+			else if(cars[i].direction === "down"){
+				image(images[8], player.sx*40,player.sy*40,40,40);
+			}
             fill(255-25.5*cars[i].patience,0,25.5*cars[i].patience);
-            rect(cars[i].sx*40+5,cars[i].sy*40+5,30,30);
+            ellipse(cars[i].sx*40+35,cars[i].sy*40+5,5,5);
             fill(255);
             textSize(24);
             textAlign(CENTER, CENTER);
