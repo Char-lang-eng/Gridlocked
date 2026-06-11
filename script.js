@@ -318,15 +318,6 @@ function draw(){
 			}
             fill(255-25.5*cars[i].patience,25.5*cars[i].patience, 0);
             ellipse(cars[i].sx*40+30,cars[i].sy*40,10,10);
-            fill(255);
-            textSize(24);
-            textAlign(CENTER, CENTER);
-            let arrow = '';
-            if(cars[i].direction === 'right') arrow = '→';
-            else if(cars[i].direction === 'left') arrow = '←';
-            else if(cars[i].direction === 'up') arrow = '↑';
-            else if(cars[i].direction === 'down') arrow = '↓';
-            text(arrow, cars[i].sx*40+20, cars[i].sy*40+20);
             cars[i].sx = cars[i].x*0.2+cars[i].sx*0.8;
             cars[i].sy = cars[i].y*0.2+cars[i].sy*0.8;
             if(!cars[i].checkPlace()){
