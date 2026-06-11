@@ -279,8 +279,8 @@ let wait = 50;
 let audio = [];
 let images = []
 function setup(){
-    audio = [new Audio("sound/gameover"), new Audio("sound/deduction"), new Audio("sound/burndeduction"), new Audio("sound/carpush"), new Audio("sound/carmud"), new Audio("sound/carmagic"), 
-    new Audio("sound/endofround"), new Audio("sound/newround"), new Audio("sound/placetile"), new Audio("sound/beepa"), new Audio("sound/beepb")];
+    audio = [loadSound("sound/gameover"), loadSound("sound/deduction"), loadSound("sound/burndeduction"), loadSound("sound/carpush"), loadSound("sound/carmud"), loadSound("sound/carmagic"), 
+    loadSound("sound/endofround"), loadSound("sound/newround"), loadSound("sound/placetile"), loadSound("sound/beepa"), loadSound("sound/beepb")];
 	images = [loadImage("images/lava.png"), loadImage("images/pusher.png"), loadImage("images/magic.png"), loadImage("images/mud.png")];
     audio[5].volume = 0.5;
     audio[4].volume = 0.5;
