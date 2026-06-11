@@ -305,19 +305,19 @@ function draw(){
         player.sy = player.y*0.2+player.sy*0.8;
         for(let i = 0; i < cars.length; i++){
 			if(cars[i].direction === "left"){
-				image(images[5], player.sx*40,player.sy*40,40,40);
+				image(images[5], cars[i].sx*40,cars[i].sy*40,40,40);
 			}
 			else if(cars[i].direction === "right"){
-				image(images[6], player.sx*40,player.sy*40,40,40);
+				image(images[6], cars[i].sx*40,cars[i].sy*40,40,40);
 			}
 			else if(cars[i].direction === "up"){
-				image(images[7], player.sx*40,player.sy*40,40,40);
+				image(images[7], cars[i].sx*40,cars[i].sy*40,40,40);
 			}
 			else if(cars[i].direction === "down"){
-				image(images[8], player.sx*40,player.sy*40,40,40);
+				image(images[8], cars[i].sx*40,cars[i].sy*40,40,40);
 			}
             fill(255-25.5*cars[i].patience,0,25.5*cars[i].patience);
-            ellipse(cars[i].sx*40+35,cars[i].sy*40+5,5,5);
+            ellipse(cars[i].sx*40+30,cars[i].sy*40,10,10);
             fill(255);
             textSize(24);
             textAlign(CENTER, CENTER);
