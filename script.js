@@ -410,7 +410,7 @@ function draw(){
 			else if(cars[i].direction === "down"){
 				image(images[8], cars[i].sx*40,cars[i].sy*40,40,40);
 			}
-			noStroke();
+			stroke(0);
             fill(255-25.5*cars[i].patience,25.5*cars[i].patience, 0);
             ellipse(cars[i].sx*40+34,cars[i].sy*40+6,10,10);
             cars[i].sx = cars[i].x*0.2+cars[i].sx*0.8;
