@@ -102,9 +102,15 @@ class Car{
             this.patience -= 1;
             if(this.patience == 6){
                 audio[9].play();
+				for(let i = 0; i < 5; i++){
+					particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 3));
+				}
             }
             if(this.patience == 3){
                 audio[10].play();
+				for(let i = 0; i < 5; i++){
+					particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 3));
+				}
             }
         }
         if(this.patience <= 0){
@@ -120,6 +126,9 @@ class Car{
                 if(tiles[j].type === 'mud'){
                     if(this.stuck == false){
                         audio[4].play();
+						for(let i = 0; i < 10; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 5));
+						}
                     }
                     this.stuck = true;
                     
@@ -128,18 +137,30 @@ class Car{
                     if(this.direction === 'right'){
                         this.direction = 'down';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                 }
                 else if(tiles[j].type === 'lava'){
@@ -239,6 +260,9 @@ class Car{
                 if(tiles[j].type === 'mud'){
                     if(this.stuck === false && this.direction != 'none'){
                         audio[4].play();
+						for(let i = 0; i < 10; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 5));
+						}
                     }
                     this.stuck = true;
                 }
@@ -246,18 +270,30 @@ class Car{
                     if(this.direction === 'right'){
                         this.direction = 'down';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                     else if(this.direction === 'left'){
                         this.direction = 'up';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                     else if(this.direction === 'up'){
                         this.direction = 'right';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                     else if(this.direction === 'down'){
                         this.direction = 'left';
                         audio[5].play();
+						for(let i = 0; i < 5; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 6));
+						}
                     }
                 }
                 else if(tiles[j].type === 'lava'){
@@ -302,6 +338,15 @@ class Particle{
 		}
 		if(this.colour == 3){
 			fill(240, 208, 5);
+		}
+		if(this.colour == 4){
+			fill(255);
+		}
+		if(this.colour == 5){
+			fill(115, 64, 9);
+		}
+		if(this.colour == 6){
+			fill(204, 118, 232);
 		}
 		ellipse(this.x, this.y, this.size, this.size);
 		this.x += this.vx;
@@ -569,6 +614,9 @@ function keyPressed(){
 	        tiles.push(new Tile('pusher'));
 	        tileAvailable = false;
 	        audio[8].play();
+			for(let i = 0; i < 5; i++){
+				particles.push(new Particle(player.x*40+20, player.y*40+20, 20, 4));
+			}
 	    }
 	}
 }
