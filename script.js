@@ -47,7 +47,7 @@ class Car{
         this.stuck = false;
         this.patience = 10;
 		if (this.direction === 'right') {
-                this.sx -= 1;
+            this.sx -= 1;
 		} else if (this.direction === 'left') {
 			this.sx += 1;
 		} else if (this.direction === 'up') {
@@ -84,9 +84,15 @@ class Car{
                     this.patience -= 1;
                     if(this.patience == 6){
                         audio[9].play();
+						for(let i = 0; i < 10; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 3));
+						}
                     }
                     if(this.patience == 3){
                         audio[10].play();
+						for(let i = 0; i < 10; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 3));
+						}
                     }
                     break;
                 }
@@ -105,6 +111,9 @@ class Car{
             cars.splice(cars.indexOf(this), 1);
             deductions += 1;
             audio[1].play();
+			for(let i = 0; i < 20; i++){
+				particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
+			}
         }
         for(let j = 0; j < tiles.length; j++){
             if(this.x === tiles[j].x && this.y === tiles[j].y){
@@ -138,8 +147,9 @@ class Car{
                     deductions += 1;
                     audio[1].play();
                     audio[2].play();
-					for(let i = 0; i < 20; i++){
+					for(let i = 0; i < 10; i++){
 						particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
+						particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 2));
 					}
                 }
                 else if(tiles[j].type === 'pusher'){
@@ -253,16 +263,18 @@ class Car{
                 else if(tiles[j].type === 'lava'){
                     if(this.direction === 'none'){
                         deductions += 10;
-						for(let i = 0; i < 20; i++){
+						for(let i = 0; i < 10; i++){
 							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 2));
 						}
                     }
                     else{
                         cars.splice(cars.indexOf(this), 1);
                         deductions += 1;
                         audio[2].play();
-						for(let i = 0; i < 20; i++){
+						for(let i = 0; i < 10; i++){
 							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 2));
 						}
                     }
                     audio[1].play();
@@ -284,6 +296,12 @@ class Particle{
 	draw(){
 		if(this.colour == 1){
 			fill(255, 0, 0);
+		}
+		if(this.colour == 2){
+			fill(245, 164, 66);
+		}
+		if(this.colour == 3){
+			fill(240, 208, 5);
 		}
 		ellipse(this.x, this.y, this.size, this.size);
 		this.x += this.vx;
@@ -406,6 +424,7 @@ function draw(){
         fill(0);
         textSize(20);
         textAlign(CENTER, TOP);
+		noStroke();
 		if(state === 0){
 			text("Press 'p' to start", 270, 453);
 		}
