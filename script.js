@@ -375,6 +375,7 @@ function draw(){
             t = millis();
         }
 		stroke(0);
+		strokeWeight(1);
 		fill(200);
 		rect(0, 400, 400, 100);
 		if(state != 0){
