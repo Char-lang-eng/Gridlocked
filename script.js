@@ -374,12 +374,13 @@ function draw(){
             update();
             t = millis();
         }
-		//stroke(0);
+		stroke(0);
 		fill(200);
 		rect(0, 400, 400, 100);
 		if(state != 0){
 	        fill(0);
 	        textSize(20);
+			noStroke();
 	        textAlign(LEFT, TOP);
 	        text("Round " + (round+1), 20, 415);
 	        textSize(16);
@@ -388,6 +389,7 @@ function draw(){
 		}
         for(let i = 0; i < 10; i++){
             fill(0, 255, 0)
+			stroke(0);
             if(i < deductions){
                 fill(50);
             }
@@ -396,7 +398,9 @@ function draw(){
                 fill(255, 0, 0);
                 textSize(24);
                 textAlign(CENTER, CENTER);
-                text("X", 380-25*i, 426);
+				stroke(255, 0, 0);
+                line(366-25*i, 410-25*i, 394-25*i, 438-25*i);
+				line(366-25*i, 438-25*i, 394-25*i, 410-25*i);
             }
         }
         fill(0);
