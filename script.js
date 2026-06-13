@@ -357,6 +357,7 @@ function draw(){
             }
         }
 		for(let i = 0; i < particles.length; i++){
+			noStroke();
 			particles[i].draw();
 			if(particles[i].size < 0.5){
 				particles.splice(i, 1);
@@ -373,6 +374,7 @@ function draw(){
             update();
             t = millis();
         }
+		stroke(0);
 		fill(200);
 		rect(0, 400, 400, 100);
 		if(state != 0){
