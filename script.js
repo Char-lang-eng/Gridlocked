@@ -139,7 +139,7 @@ class Car{
                     audio[1].play();
                     audio[2].play();
 					for(let i = 0; i < 20; i++){
-						particles.push(new Particle(this.x*40+20, this.y*40+20, 10));
+						particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
 					}
                 }
                 else if(tiles[j].type === 'pusher'){
@@ -254,7 +254,7 @@ class Car{
                     if(this.direction === 'none'){
                         deductions += 10;
 						for(let i = 0; i < 20; i++){
-							particles.push(new Particle(this.x*40+20, this.y*40+20, 10));
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
 						}
                     }
                     else{
@@ -262,7 +262,7 @@ class Car{
                         deductions += 1;
                         audio[2].play();
 						for(let i = 0; i < 20; i++){
-							particles.push(new Particle(this.x*40+20, this.y*40+20, 10));
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 1));
 						}
                     }
                     audio[1].play();
@@ -358,6 +358,10 @@ function draw(){
         }
 		for(let i = 0; i < particles.length; i++){
 			particles[i].draw();
+			if(particles[i].size < 0.5){
+				particles.splice(i, 1);
+				i--;
+			}
 		}
         if(deductions >= 10){
             wait--;
