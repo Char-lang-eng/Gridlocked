@@ -276,8 +276,8 @@ class Particle{
 	constructor(x, y, size, colour){
 		this.x = x;
 		this.y = y;
-		this.vx = random(-1, 1);
-		this.vy = random(-1, 1);
+		this.vx = random(-5, 5);
+		this.vy = random(-5, 5);
 		this.size = size;
 		this.colour = colour;
 	}
