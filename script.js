@@ -84,13 +84,13 @@ class Car{
                     this.patience -= 1;
                     if(this.patience == 6){
                         audio[9].play();
-						for(let i = 0; i < 10; i++){
+						for(let i = 0; i < 5; i++){
 							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 3));
 						}
                     }
                     if(this.patience == 3){
                         audio[10].play();
-						for(let i = 0; i < 10; i++){
+						for(let i = 0; i < 5; i++){
 							particles.push(new Particle(this.x*40+20, this.y*40+20, 20, 3));
 						}
                     }
