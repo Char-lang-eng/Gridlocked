@@ -139,7 +139,7 @@ class Car{
                     audio[1].play();
                     audio[2].play();
 					for(let i = 0; i < 20; i++){
-						particles.push(new Particle(this.x, this.y, 10));
+						particles.push(new Particle(this.x*40+20, this.y*40+20, 10));
 					}
                 }
                 else if(tiles[j].type === 'pusher'){
@@ -253,11 +253,17 @@ class Car{
                 else if(tiles[j].type === 'lava'){
                     if(this.direction === 'none'){
                         deductions += 10;
+						for(let i = 0; i < 20; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 10));
+						}
                     }
                     else{
                         cars.splice(cars.indexOf(this), 1);
                         deductions += 1;
                         audio[2].play();
+						for(let i = 0; i < 20; i++){
+							particles.push(new Particle(this.x*40+20, this.y*40+20, 10));
+						}
                     }
                     audio[1].play();
                     
