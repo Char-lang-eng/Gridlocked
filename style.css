@@ -5,18 +5,16 @@ html, body {
 }
 
 body {
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;     
   background-color: #222;
   color: white;
   font-family: Arial, sans-serif;
-  
-  justify-content: center;
-  align-items: center;
 }
-canvas{
-    justify-content: center;
-    align-items: center;
-    display: flex;
+
+/* Cleaned up the canvas CSS since layout is handled by the body now */
+canvas {
+  display: block;
 }
