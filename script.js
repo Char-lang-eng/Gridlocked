@@ -276,7 +276,7 @@ class Particle{
 		this.colour = colour;
 	}
 	draw(){
-		if(colour == 1){
+		if(this.colour == 1){
 			fill(255, 0, 0);
 		}
 		ellipse(this.x, this.y, this.size, this.size);
