@@ -138,6 +138,9 @@ class Car{
                     deductions += 1;
                     audio[1].play();
                     audio[2].play();
+					for(let i = 0; i < 20; i++){
+						particles.push(new Particle(this.x, this.y, 10));
+					}
                 }
                 else if(tiles[j].type === 'pusher'){
                     j = tiles.length;
@@ -263,9 +266,31 @@ class Car{
         }
     }
 }
+class Particle{
+	constructor(x, y, size, colour){
+		this.x = x;
+		this.y = y;
+		this.vx = random(-1, 1);
+		this.vy = random(-1, 1);
+		this.size = size;
+		this.colour = colour;
+	}
+	draw(){
+		if(colour == 1){
+			fill(255, 0, 0);
+		}
+		ellipse(this.x, this.y, this.size, this.size);
+		this.x += this.vx;
+		this.y += this.vy
+		this.vx *= 0.9;
+		this.vy *= 0.9;
+		this.size *= 0.95;
+	}
+}
 
 let cars = [];
 let tiles = [];
+let particles = [];
 let t;
 let state = 0;
 let spawns = 9;
@@ -325,6 +350,9 @@ function draw(){
                 i--;
             }
         }
+		for(let i = 0; i < particles.length; i++){
+			particles[i].draw();
+		}
         if(deductions >= 10){
             wait--;
             if(wait == 0){
@@ -335,9 +363,6 @@ function draw(){
             update();
             t = millis();
         }
-        
-        // Display stats at the bottom
-
 		fill(200);
 		rect(0, 400, 400, 100);
 		if(state != 0){
