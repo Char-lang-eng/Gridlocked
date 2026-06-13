@@ -380,7 +380,8 @@ function setup(){
     audio[5].volume = 0.5;
     audio[4].volume = 0.5;
     audio[1].volume = 0.25;
-    createCanvas(400,500);
+    let canvas = createCanvas(400,500);
+	canvas.parent('game-container');
     t = millis();
     player = new Car(0, 0, 'none');
 }
