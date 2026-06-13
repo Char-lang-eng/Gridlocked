@@ -399,8 +399,8 @@ function draw(){
                 textSize(24);
                 textAlign(CENTER, CENTER);
 				stroke(255, 0, 0);
-                line(366-25*i, 410-25*i, 394-25*i, 438-25*i);
-				line(366-25*i, 438-25*i, 394-25*i, 410-25*i);
+                line(373-25*i, 417, 387-25*i, 431);
+				line(373-25*i, 431, 387-25*i, 417);
             }
         }
         fill(0);
