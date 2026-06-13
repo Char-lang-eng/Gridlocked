@@ -615,7 +615,7 @@ function keyPressed(){
 	        tiles.push(new Tile('pusher'));
 	        tileAvailable = false;
 	        audio[8].play();
-			for(let i = 0; i < 5; i++){
+			for(let i = 0; i < 10; i++){
 				particles.push(new Particle(player.x*40+20, player.y*40+20, 20, 4));
 			}
 	    }
