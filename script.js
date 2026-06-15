@@ -377,6 +377,7 @@ function preload(){
     loadSound("sound/endofround"), loadSound("sound/newround"), loadSound("sound/placetile"), loadSound("sound/beepa"), loadSound("sound/beepb")];
 	images = [loadImage("images/lava.png"), loadImage("images/pusher.png"), loadImage("images/magic.png"), loadImage("images/mud.png"), loadImage("images/player.png"), loadImage("images/carleft.png"),
 			 loadImage("images/carright.png"), loadImage("images/carup.png"), loadImage("images/cardown.png")];
+}
 function setup(){
     audio[5].volume = 0.5;
     audio[4].volume = 0.5;
