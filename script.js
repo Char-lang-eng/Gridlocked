@@ -597,16 +597,16 @@ function keyPressed(){
 		}
 	}
 	if(state != 2){
-	    if(keyCode === UP_ARROW){
+	    if(keyCode === UP_ARROW || keyCode === 87){
 	        player.push('up');
 	    }
-	    else if(keyCode === DOWN_ARROW){
+	    else if(keyCode === DOWN_ARROW || keyCode === 83){
 	        player.push('down');
 	    }
-	    else if(keyCode === LEFT_ARROW){
+	    else if(keyCode === LEFT_ARROW || keyCode === 65){
 	        player.push('left');
 	    }
-	    else if(keyCode === RIGHT_ARROW){
+	    else if(keyCode === RIGHT_ARROW || keyCode === 68){
 	        player.push('right');
 	    }
 	    else if(keyCode === 32 && tileAvailable && player.x >= 1 && player.x <= 8 && player.y >= 1 && player.y <= 8){
